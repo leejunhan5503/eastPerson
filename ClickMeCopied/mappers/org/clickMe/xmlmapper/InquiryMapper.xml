@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.clickMe.Inquiry.InquiryMapper">
+
+	
+	<resultMap id="inquiryResultMap" type="org.clickMe.common.model.dto.InquiryDTO">
+		<id property="code" column="INQ_CODE"/>
+		<result property="inqTypeCode" column="INQ_TYPE_CODE"/>
+		<result property="userCode" column="USER_CODE"/>
+		<result property="inqTitle" column="INQ_TITLE"/>
+		<result property="inqContent" column="INQ_CONTENT"/>
+		<result property="inqTime" column="INQ_TIME"/>
+		<result property="ansContent" column="ANS_CONTENT"/>
+		<result property="ansTime" column="ANS_TIME"/>
+		<result property="ansYn" column="ANS_YN"/>
+	</resultMap>
+	
+	<select id="selectAllInquiry" resultMap="inquiryResultMap">
+		SELECT
+		       A.INQ_CODE
+		     , A.INQ_TYPE_CODE
+		     , A.USER_CODE
+		     , A.INQ_TITLE
+		     , A.INQ_CONTENT
+		     , A.INQ_TIME
+		     , A.ANS_CONTENT
+		     , A.ANS_TIME
+		     , A.ANS_YN
+		  FROM INQUIRY A
+	</select>
+	
+</mapper>

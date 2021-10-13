@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.clickMe.common.post.model.dao.PostMapper">
+	<resultMap type="PostDTO" id="postDefaultResultMap">
+		<id property="code" column="POST_CODE"/>
+		<result property="sellerCode" column="SELLER_CODE"/>
+		<result property="buyerCode" column="BUYER_CODE"/>
+		<result property="catCode" column="POST_CAT_CODE"/>
+		<result property="authCode" column="AUTH_CODE"/>
+		<result property="title" column="POST_TITLE"/>
+		<result property="content" column="POST_CONTENT"/>
+		<result property="likeCount" column="LIKE_COUNT"/>
+		<result property="time" column="POST_TIME"/>
+		<result property="soldYn" column="SOLD_YN"/>
+		<result property="reportCount" column="REPORT_COUNT"/>
+		<result property="blindYn" column="BLIND_YN"/>
+		<result property="itemPrice" column="ITEM_PRICE"/>
+		<result property="view" column="POST_VIEW"/>
+	</resultMap>
+	<select id="selectAllPost" resultMap="postDefaultResultMap">
+		SELECT A.POST_CODE
+             , A.SELLER_CODE
+             , A.BUYER_CODE
+             , A.POST_CAT_CODE
+             , A.AUTH_CODE
+             , A.POST_TITLE
+             , A.POST_CONTENT
+             , A.LIKE_COUNT
+             , A.POST_TIME
+             , A.SOLD_YN
+             , A.REPORT_COUNT
+             , A.BLIND_YN
+             , A.ITEM_PRICE
+             , A.POST_VIEW
+          FROM POST A
+         ORDER BY A.POST_CODE DESC
+	</select>
+</mapper>
